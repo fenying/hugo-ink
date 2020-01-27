@@ -6,6 +6,7 @@
 		{{ partial "head.html" . }}
 
 		<div class="post">
+	
 			<div class="post-header">
 				{{ if ne .Date.Year 1 }}
 					<div class="meta">
@@ -19,21 +20,18 @@
 					<h1 class="title">{{ .Title }}</h1>
 				</div>
 			</div>
+			{{ if ne .Type "page" }}
+				{{ if gt .Params.tags 0 }}
+				<div class="tags">Tags:
+					{{ range .Params.tags }}
+					<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+					{{ end }}
+				</div>
+				{{ end }}
+			{{ end }}
 					
 			<div class="markdown">
 				{{ .Content }}
-			</div>
-
-			<div class="tags">
-				{{ if ne .Type "page" }}
-					{{ if gt .Params.tags 0 }}
-						<ul class="flat">
-							{{ range .Params.tags }}
-							<li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
-							{{ end }}
-						</ul>
-					{{ end }}
-				{{ end }}
 			</div>
 
 			{{- if .Site.DisqusShortname -}}
@@ -43,9 +41,9 @@
 				{{- $.Scratch.Set "isDisqus" false -}}
 			{{- end -}}
 
-			{{- if and (isset .Params "disqus") (eq .Params.disqus false) -}}
+			{{- if and (isset .Params "comments") (eq .Params.comments false) -}}
 				{{- $.Scratch.Set "isDisqus" false -}}
-			{{- else if and (isset .Params "disqus") (eq .Params.disqus true) -}}
+			{{- else if and (isset .Params "comments") (eq .Params.comments true) -}}
 				{{- $.Scratch.Set "isDisqus" true -}}
 			{{- end -}}
 

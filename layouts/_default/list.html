@@ -31,12 +31,26 @@
 						<span class="description">
 							{{ if isset .Params "description" }}
 								{{ .Description }}
-							{{ else if gt (len .RawContent) 120 }}
-								{{ slicestr .RawContent 0 120 }}...
 							{{ else }}
-								{{ .RawContent }}
+								{{ .Summary }}
 							{{ end }}
 						</span>
+						{{ if ne .Type "page" }}
+							{{ if (gt .Params.tags 0) or (gt .Params.categories 0) }}
+							<div class="tags">
+								{{ if gt .Params.categories 0 }}
+									{{ range .Params.categories }}
+									<a class="category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">Category: {{ . }}</a>
+									{{ end }}
+								{{ end }}
+								{{ if gt .Params.tags 0 }}
+									{{ range .Params.tags }}
+									<a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a class="category">
+									{{ end }}
+								{{ end }}
+							</div>
+							{{ end }}
+						{{ end }}
 					</div>
 				</div>
 			</li>

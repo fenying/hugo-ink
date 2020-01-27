@@ -7,13 +7,13 @@
          url("https://rsms.me/inter/font-files/Inter-Regular.woff") format("woff");
   }
   
-  @font-face {
+@font-face {
     font-family: 'Inter';
     font-display: auto;
     font-style:  normal;
     font-weight: 500;
     src: url("https://rsms.me/inter/font-files/Inter-Medium.woff2") format("woff2"),
-         url("https://rsms.me/inter/font-files/Inter-Medium.woff") format("woff");
+            url("https://rsms.me/inter/font-files/Inter-Medium.woff") format("woff");
 }
 
 body {
@@ -28,10 +28,17 @@ a {
     color: #3700ff;
     text-decoration: none;
     word-break: break-word;
+    transition: all 500ms ease-in-out;
+    border-bottom: 2px solid transparent;
 }
-    a:hover {
-        border-bottom: 2px solid #3700ff;
-    }
+
+a:hover {
+    border-bottom: 2px solid #3700ff;
+}
+
+.site-title a {
+    border-bottom: none;
+}
 
 html,button,input,select,textarea {
     color: #333;
@@ -216,7 +223,6 @@ ul {
     width: 64px;
     height: 64px;
     overflow: hidden;
-    border-radius: 100%;
 }
 .header .site-title {
     margin: 0 0 10px 0;
@@ -323,16 +329,29 @@ ul {
     background-color: #f9f2f4;
 }
 
+div.post > div.tags {
+
+    margin-bottom: 16px;
+}
+
 .post .tags a {
     display: inline-block;
-    border: 1px solid #3700ff;
     border-radius: 3px;
     padding: 0px 6px;
-    color: #3700ff;
     line-height: 20px;
     font-size: 0.85em;
     text-decoration: none;
     margin: 0 10px 0 0;
+}
+
+.post .tags a.tag {
+    border: 1px solid #3700ff;
+    color: #3700ff;
+}
+
+.post .tags a.category {
+    border: 1px solid #ff002b;
+    color: #ff002b;
 }
 
 .list .posts .post-header .meta {
