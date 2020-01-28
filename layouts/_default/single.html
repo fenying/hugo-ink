@@ -21,10 +21,17 @@
 				</div>
 			</div>
 			{{ if ne .Type "page" }}
-				{{ if gt .Params.tags 0 }}
-				<div class="tags">Tags:
-					{{ range .Params.tags }}
-					<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+				{{ if (gt .Params.tags 0) or (gt .Params.categories 0) }}
+				<div class="tags">
+					{{ if gt .Params.categories 0 }}
+						{{ range .Params.categories }}
+						<a class="category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">Category: {{ . }}</a>
+						{{ end }}
+					{{ end }}
+					{{ if gt .Params.tags 0 }}
+						{{ range .Params.tags }}
+						<a class="tag" title="Tag: {{ . }}" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a class="category">
+						{{ end }}
 					{{ end }}
 				</div>
 				{{ end }}
