@@ -354,6 +354,11 @@ div.post > div.tags {
     color: #ff002b;
 }
 
+.post .pinned {
+
+    color: #ff002b;
+}
+
 .list .posts .post-header .meta {
     margin-bottom: 0;
     margin-left: 5px;

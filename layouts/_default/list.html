@@ -13,7 +13,7 @@
 		{{ end }}
 
 		<ul class="posts flat">
-			{{- range .Data.Pages -}}
+			{{- range (.Data.Pages.ByDate.Reverse.ByParam "pinned") -}}
 			{{- if (in (.Site.Params.excludedTypes | default (slice "page")) .Type) -}}
 			{{- else -}}
 			<li class="post">
@@ -26,6 +26,7 @@
 					</div>
 					<div class="matter">
 						<h4 class="title small">
+							{{ if .Param "pinned" }}<span class="pinned">[置顶]</span>{{ end }}
 							<a href="{{ .RelPermalink }}">{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}</a>
 						</h4>
 						<span class="description">
