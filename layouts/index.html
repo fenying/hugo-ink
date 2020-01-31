@@ -8,7 +8,8 @@
 		<div class="recent-posts section">
 			<div class="posts">
 				{{ $pages := (where .Site.RegularPages "Type" "in" .Site.Params.mainSections).ByDate.Reverse.ByParam "sort" }}
-				{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
+				{{ $pages2 := (where $pages "Params.draft" "!=" true) }}
+				{{ $paginator := .Paginate (where $pages2 "Params.hidden" "!=" true) }}
 				{{ range $paginator.Pages }}
 					<div class="post">
 						<div class="post-header">
@@ -20,8 +21,8 @@
 							</div>
 							<div class="matter">
 								<h4 class="title small">
-									{{ if .Param "pinned" }}<span class="pinned">[置顶]</span>{{ end }}
-									<a href="{{ .RelPermalink }}">{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}</a>
+									<a href="{{ .RelPermalink }}">{{.Title}}</a>
+									{{ if .Param "pinned" }}<sup class="sticked">STICKED</sup>{{ end }}
 								</h4>
 								<span class="description">
 									{{ if isset .Params "description" }}

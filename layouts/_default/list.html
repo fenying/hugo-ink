@@ -26,8 +26,9 @@
 					</div>
 					<div class="matter">
 						<h4 class="title small">
-							{{ if .Param "pinned" }}<span class="pinned">[置顶]</span>{{ end }}
-							<a href="{{ .RelPermalink }}">{{.Title}}{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}</a>
+							<a href="{{ .RelPermalink }}">{{.Title}}</a>
+							{{ if .Draft }}<sup class="draft-label">DRAFT</sup>{{ end }}
+							{{ if .Param "pinned" }}<sup class="sticked">STICKED</sup>{{ end }}
 						</h4>
 						<span class="description">
 							{{ if isset .Params "description" }}
@@ -37,12 +38,10 @@
 							{{ end }}
 						</span>
 						{{ if ne .Type "page" }}
-							{{ if (gt .Params.tags 0) or (gt .Params.categories 0) }}
+							{{ if gt .Params.categories 0 }}
 							<div class="tags">
-								{{ if gt .Params.categories 0 }}
-									{{ range .Params.categories }}
-									<a class="category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">Category: {{ . }}</a>
-									{{ end }}
+								{{ range .Params.categories }}
+								<a class="category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">Category: {{ . }}</a>
 								{{ end }}
 								{{ if gt .Params.tags 0 }}
 									{{ range .Params.tags }}
