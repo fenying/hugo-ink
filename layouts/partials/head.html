@@ -6,7 +6,12 @@
 			</a>
 		</div>
 	{{ end }}
-	<h1 class="site-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+	<h1 class="site-title">
+		<a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+		{{- if ne (.Site.Params.mainSite | upper) (.Site.BaseURL | upper) -}}
+		<sup class="mirror-tips">--mirror-from "<a href="{{ .Site.Params.mainSite }}">{{ .Site.Params.mainSite }}</a>"</sup>
+		{{- end -}}
+	</h1>
 	<div class="site-description">
 		{{- if isset .Site.Params "subtitle" -}}
 		<p>{{ .Site.Params.Subtitle | markdownify }}</p>

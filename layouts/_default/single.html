@@ -43,8 +43,10 @@
 					源地址：<a href="{{ .Params.migrated }}" target="_blank">{{ .Params.migrated }}</a>。
 				</div>
 			{{- end -}}
-					
+
 			<div class="markdown">
+				{{ partial "toc.html" . }}
+	
 				{{ .Content }}
 			</div>
 

@@ -91,10 +91,9 @@ textarea {
 blockquote {
     margin-left: 1rem;
     font-style: italic;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-family: Georgia,bitstream charter,serif;
-    border-left: 3px solid;
-    border-color: #3700ff;
+    border-left: 4px solid #aaaaaa;
     padding-left: 20px;
 }
 
@@ -191,9 +190,11 @@ ul {
     margin-top: 0;
     padding: 20px;
     background-color: transparent !important;
+    border-left: 4px solid #0594cb;
 }
 
 .highlight {
+    margin-left: 1rem;
     background: 0 0;
     background-color: #FAFAFA;
 }
@@ -203,12 +204,16 @@ ul {
     margin: 0 auto;
 }
 
+code {
+    
+    font-family: 'Fira Code', 'fira mono',cousine,Monaco,Menlo,'source code pro',monospace;
+}
+
 p code {
     color: #145ca4;
-    background: rgba(25,118,210,.07)!important;
+    background: rgba(25,118,210,.07) !important;
     padding: 2px 5px;
     border-radius: 3px;
-    font-family: fira mono,cousine,Monaco,Menlo,source code pro,monospace;
 }
 
 .container {
@@ -388,9 +393,9 @@ div.post > div.tags {
     padding: 8px;
     border-radius: 4px;
     margin-left: 6px;
-    font-size: 12px;
+    font-size: 0.8rem;
     color: #aaaaaa;
-    background-color: #f9f2f4;
+    background-color: #fdfdfd;
 }
 
 .list .posts .post-header .meta {
@@ -486,9 +491,16 @@ div.post > div.tags {
 .authorization {
 
     color: #aaaaaa;
-    font-size: 12px;
+    font-size: 0.8rem;
     text-align: right;
     font-weight: bold;
+}
+
+.site-title .mirror-tips, .site-title .mirror-tips a {
+
+    font-size: 0.8rem;
+    vertical-align: top;
+    color: #aaaaaa;
 }
 
 .authorization.authorized {
@@ -506,4 +518,38 @@ div.post > div.tags {
     opacity: 0.6;
     text-align: center;
     font-size: 12px;
+}
+
+aside.toc {
+
+    text-align: left;
+    border: 1px solid #eeeeee;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 0.8rem;
+    background-color: #fafafa;
+    display: table;
+}
+
+aside.toc .toc-title {
+
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+aside.toc ul {
+
+    margin: 0;
+    padding: 0;
+}
+
+aside.toc li {
+
+    margin: 0;
+    padding: 0 0 0 1rem;
 }
