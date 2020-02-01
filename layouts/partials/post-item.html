@@ -1,0 +1,48 @@
+<div class="post-header">
+    <div class="meta">
+        <div class="date">
+            <span class="day">{{ dateFormat "02" .Date }}</span>
+            <span class="rest">{{ if $.Site.Data.month }}{{ index $.Site.Data.month (printf "%d" .Date.Month) }} {{ .Date.Year }}{{ else }}{{ dateFormat "Jan 2006" .Date }}{{ end }}</span>
+        </div>
+    </div>
+    <div class="matter">
+        <h4 class="title small">
+            <a href="{{ .RelPermalink }}">{{.Title}}</a>
+            {{- if .Param "draft" -}}
+                <sup class="label draft" title="尚未完成的草稿">DRAFT</sup>
+            {{- end -}}
+            {{- if .Param "pinned" -}}
+                <sup class="label sticked" title="置顶文章">STICKED</sup>
+            {{- else if in (.Param "tags") "recommended" -}}
+                <sup class="label recommended" title="推荐阅读">RECOMMENDED</sup>
+            {{- else if in (.Param "tags") "outdated" -}}
+                <sup class="label outdated" title="文章内容已经过时，不具备参考性">OUTDATED</sup>
+            {{- else if .Param "migrated" -}}
+                <sup class="label migrated" title="该文章迁移自作者旧博客，可能存在排版错误">MIGRATED</sup>
+            {{- end -}}
+        </h4>
+        <span class="description">
+            {{ if isset .Params "description" }}
+                {{ .Description }}
+            {{ else }}
+                {{ .Summary }}
+            {{ end }}
+        </span>
+        {{ if ne .Type "page" }}
+            {{ if or (gt .Params.tags 0) (gt .Params.categories 0) }}
+            <div class="tags">
+                {{ if gt .Params.categories 0 }}
+                    {{ range .Params.categories }}
+                    <a class="category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">Category: {{ . }}</a>
+                    {{ end }}
+                {{ end }}
+                {{ if gt .Params.tags 0 }}
+                    {{ range .Params.tags }}
+                    <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a class="category">
+                    {{ end }}
+                {{ end }}
+            </div>
+            {{ end }}
+        {{ end }}
+    </div>
+</div>

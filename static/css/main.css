@@ -45,15 +45,13 @@ html,button,input,select,textarea {
 }
 
 ::-moz-selection {
-    background: #3700ff;
+    background: rgba(25, 118, 210, .4);
     text-shadow: none;
-    color: #fff;
 }
 
 ::selection {
-    background: #3700ff;
+    background: rgba(25, 118, 210, .4);
     text-shadow: none;
-    color: #fff;
 }
 
 hr {
@@ -205,6 +203,14 @@ ul {
     margin: 0 auto;
 }
 
+p code {
+    color: #145ca4;
+    background: rgba(25,118,210,.07)!important;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: fira mono,cousine,Monaco,Menlo,source code pro,monospace;
+}
+
 .container {
     max-width: 800px;
     margin-top: 50px;
@@ -316,17 +322,8 @@ ul {
 .post .title.small {
     margin: 0 0 10px 0;
 }
-.post .post-header {
+.posts .post-header {
     margin-bottom: 30px;
-}
-
-.post .draft-label {
-    color: #3700ff;
-    text-decoration: none;
-    padding: 2px 4px;
-    border-radius: 4px;
-    margin-left: 6px;
-    background-color: #f9f2f4;
 }
 
 div.post > div.tags {
@@ -354,13 +351,45 @@ div.post > div.tags {
     color: #ff002b;
 }
 
-.post .sticked {
+.post .label {
 
-    color: #ff002b;
     text-decoration: none;
     padding: 2px 4px;
     border-radius: 4px;
     margin-left: 6px;
+    font-weight: bold;
+    background-color: #f9f2f4;
+}
+
+.post .label.draft {
+    color: #3700ff;
+}
+
+.post .label.recommended {
+    color: #00bb1f;
+}
+
+.post .label.sticked {
+    color: #ff002b;
+}
+
+.post .label.migrated {
+    color: #ae00ff;
+    font-style: italic;
+}
+
+.post .label.outdated {
+    color: #000000;
+    text-decoration: line-through;
+}
+
+.post .migration {
+
+    padding: 8px;
+    border-radius: 4px;
+    margin-left: 6px;
+    font-size: 12px;
+    color: #aaaaaa;
     background-color: #f9f2f4;
 }
 
@@ -452,4 +481,29 @@ div.post > div.tags {
         margin: 0 10px 0 0;
         font-size: 14px;
     }
+}
+
+.authorization {
+
+    color: #aaaaaa;
+    font-size: 12px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.authorization.authorized {
+
+    margin-bottom: 8px;
+}
+
+.authorization::selection {
+
+    color: #000000;
+}
+
+.comments.disabled {
+
+    opacity: 0.6;
+    text-align: center;
+    font-size: 12px;
 }

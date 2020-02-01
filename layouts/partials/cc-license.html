@@ -1,0 +1,26 @@
+{{- $display_cc_license := false -}}
+
+{{- if isset .Params "cc_license" -}}
+    {{- $display_cc_license = .Params.cc_license -}}
+{{- else -}}
+    {{- if isset .Site.Params "cc_license" -}}
+        {{- $display_cc_license = .Site.Params.cc_license -}}
+    {{- end -}}
+{{- end -}}
+
+{{- if eq $display_cc_license false -}}
+<p class="authorization no-authorized">
+    该文章版权归作者所有，在未获得作者许可的前提下，禁止以任何形式转载、刊载、修改和再发行。
+</p>
+{{- else -}}
+<div class="authorization authorized">
+    该文章根据
+    <a
+        href="https://creativecommons.org/licenses/{{ $display_cc_license | lower }}/4.0/deed"
+        target="_blank"
+    >CC-{{ $display_cc_license | upper }}-4.0</a>
+    协议发表，转载请遵循该协议。<br>
+
+    本文地址：{{ .Permalink }}
+</div>
+{{- end -}}

@@ -36,27 +36,40 @@
 				</div>
 				{{ end }}
 			{{ end }}
+
+			{{- if .Params.migrated -}}
+				<div class="migration">
+					该文章迁移自作者的旧博客站点。<br>
+					源地址：<a href="{{ .Params.migrated }}" target="_blank">{{ .Params.migrated }}</a>。
+				</div>
+			{{- end -}}
 					
 			<div class="markdown">
 				{{ .Content }}
 			</div>
 
+			{{ partial "cc-license.html" . }}
+
 			{{- if .Site.DisqusShortname -}}
-			{{- $.Scratch.Set "isDisqus" true -}}
-
-			{{- if and (isset .Params "type") (in .Site.Params.disableDisqusTypes .Params.type) -}}
-				{{- $.Scratch.Set "isDisqus" false -}}
-			{{- end -}}
-
-			{{- if and (isset .Params "comments") (eq .Params.comments false) -}}
-				{{- $.Scratch.Set "isDisqus" false -}}
-			{{- else if and (isset .Params "comments") (eq .Params.comments true) -}}
 				{{- $.Scratch.Set "isDisqus" true -}}
-			{{- end -}}
 
-			{{- if eq ($.Scratch.Get "isDisqus") true -}}
-			{{- partial "disqus.html" . -}}
-			{{- end -}}
+				{{- if and (isset .Params "type") (in .Site.Params.disableDisqusTypes .Params.type) -}}
+					{{- $.Scratch.Set "isDisqus" false -}}
+				{{- end -}}
+
+				{{- if and (isset .Params "comments") (eq .Params.comments false) -}}
+					{{- $.Scratch.Set "isDisqus" false -}}
+				{{- else if and (isset .Params "comments") (eq .Params.comments true) -}}
+					{{- $.Scratch.Set "isDisqus" true -}}
+				{{- end -}}
+
+				{{- if eq ($.Scratch.Get "isDisqus") true -}}
+					{{- partial "disqus.html" . -}}
+				{{- else -}}
+					<p class="comments disabled">
+						作者已关闭该文章的评论。
+					</p>
+				{{- end -}}
 			{{- end -}}
 		</div>
 	</div>
