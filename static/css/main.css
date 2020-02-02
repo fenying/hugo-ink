@@ -45,12 +45,14 @@ html,button,input,select,textarea {
 }
 
 ::-moz-selection {
-    background: rgba(25, 118, 210, .4);
+    background: #0594cb;
+    color: #fff;
     text-shadow: none;
 }
 
 ::selection {
-    background: rgba(25, 118, 210, .4);
+    background: #0594cb;
+    color: #fff;
     text-shadow: none;
 }
 
@@ -356,6 +358,11 @@ div.post > div.tags {
     color: #ff002b;
 }
 
+.post .tags a.book {
+    border: 1px solid #00ac9d;
+    color: #00ac9d;
+}
+
 .post .label {
 
     text-decoration: none;
@@ -508,11 +515,6 @@ div.post > div.tags {
     margin-bottom: 8px;
 }
 
-.authorization::selection {
-
-    color: #000000;
-}
-
 .comments.disabled {
 
     opacity: 0.6;
@@ -552,4 +554,41 @@ aside.toc li {
 
     margin: 0;
     padding: 0 0 0 1rem;
+}
+
+.chpater-nav {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.chpater-nav-delimiter {
+    margin: 0 0 16px 0;
+    border: 0;
+    border-bottom: 1px dashed #aaa;
+}
+
+.chpater-nav .nav-item {
+
+    flex: 1;
+    font-size: 0.8rem;
+}
+
+.chpater-nav .no-nav {
+
+    color: #aaaaaa;
+}
+
+.chpater-nav .nav-item.next-chapter {
+ 
+    text-align: right;
+}
+
+.chpater-nav .nav-item.back-to-catalog {
+ 
+    text-align: center;
+}
+
+.chpater-nav .nav-item.prev-chapter {
+
+    text-align: left;
 }

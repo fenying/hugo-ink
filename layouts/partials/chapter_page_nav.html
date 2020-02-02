@@ -1,0 +1,28 @@
+
+<div class="chpater-nav">
+    {{- $thePosts := where .Site.Pages ".Params.book" "==" .Params.book -}}
+    {{- $thePosts = (where $thePosts "Type" "==" "chapter").ByParam "chapter_id" -}}
+    {{- with index (where $thePosts.Reverse ".Params.chapter_id" "lt" .Params.chapter_id) 0 -}}
+        <div class="nav-item prev-chapter">
+            <a href="{{ .Permalink }}"><<< {{ .Title }}</a>
+        </div>
+    {{- else -}}
+        <div class="nav-item prev-chapter">
+            <span class="no-nav">已经是第一节了</span>
+        </div>
+    {{- end -}}
+    {{- with .Params.book -}}
+    <div class="nav-item back-to-catalog">
+        <a href="{{ "/books/" | relLangURL }}{{ . | urlize }}">返回目录</a>
+    </div>
+    {{- end -}}
+    {{- with index (where $thePosts ".Params.chapter_id" "gt" .Params.chapter_id) 0 -}}
+        <div class="nav-item next-chapter">
+            <a href="{{ .Permalink }}">{{ .Title }} >>></a>
+        </div>
+    {{- else -}}
+        <div class="nav-item next-chapter">
+            <span class="no-nav">已经是最后一节了</span>
+        </div>
+    {{- end -}}
+</div>

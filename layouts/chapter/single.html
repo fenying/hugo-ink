@@ -6,7 +6,11 @@
 		{{ partial "head.html" . }}
 
 		<div class="post">
-	
+
+			{{- partial "chapter_page_nav.html" . -}}
+
+			<hr class="chpater-nav-delimiter">
+
 			<div class="post-header">
 				{{ if ne .Date.Year 1 }}
 					<div class="meta">
@@ -23,10 +27,8 @@
 			{{ if ne .Type "page" }}
 				{{ if (gt .Params.tags 0) or (gt .Params.categories 0) }}
 				<div class="tags">
-					{{ if gt .Params.categories 0 }}
-						{{ range .Params.categories }}
-						<a class="category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">Category: {{ . }}</a>
-						{{ end }}
+					{{ if .Params.book }}
+						<a class="book" href="{{ "/books/" | relLangURL }}{{ .Params.book | urlize }}">Book: {{ .Params.book }}</a>
 					{{ end }}
 					{{ if gt .Params.tags 0 }}
 						{{ range .Params.tags }}
@@ -51,6 +53,10 @@
 			</div>
 
 			{{ partial "cc-license.html" . }}
+
+			<hr class="chpater-nav-delimiter">
+
+			{{- partial "chapter_page_nav.html" . -}}
 
 			{{- if .Site.DisqusShortname -}}
 				{{- $.Scratch.Set "isDisqus" true -}}

@@ -35,6 +35,8 @@
                     {{ range .Params.categories }}
                     <a class="category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">Category: {{ . }}</a>
                     {{ end }}
+                {{ else if .Params.book }}
+                    <a class="book" href="{{ "/books/" | relLangURL }}{{ .Params.book | urlize }}">Book: {{ .Params.book }}</a>
                 {{ end }}
                 {{ if gt .Params.tags 0 }}
                     {{ range .Params.tags }}
