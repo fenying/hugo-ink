@@ -49,7 +49,7 @@
 			<div class="markdown">
 				{{ partial "toc.html" . }}
 
-				{{ .Content }}
+				{{ .Content | replaceRE "<table>" "<table class=\"mark-el\">" }}
 			</div>
 
 			{{ partial "cc-license.html" . }}

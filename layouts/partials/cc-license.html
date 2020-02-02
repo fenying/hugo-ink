@@ -1,3 +1,4 @@
+{{- if not .Params.forwarded -}}
 {{- $display_cc_license := false -}}
 
 {{- if isset .Params "cc_license" -}}
@@ -23,4 +24,5 @@
 
     本文地址：{{ .Permalink }}
 </div>
+{{- end -}}
 {{- end -}}

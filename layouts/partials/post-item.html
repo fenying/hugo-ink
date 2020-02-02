@@ -11,6 +11,9 @@
             {{- if .Param "draft" -}}
                 <sup class="label draft" title="尚未完成的草稿">DRAFT</sup>
             {{- end -}}
+            {{- if .Param "forwarded" -}}
+                <sup class="label forwarded" title="非作者原创文章">FORWARDED</sup>
+            {{- end -}}
             {{- if .Param "pinned" -}}
                 <sup class="label sticked" title="置顶文章">STICKED</sup>
             {{- else if in (.Param "tags") "recommended" -}}

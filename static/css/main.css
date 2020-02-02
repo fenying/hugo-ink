@@ -211,7 +211,7 @@ code {
     font-family: 'Fira Code', 'fira mono',cousine,Monaco,Menlo,'source code pro',monospace;
 }
 
-p code {
+p code, li code {
     color: #145ca4;
     background: rgba(25,118,210,.07) !important;
     padding: 2px 5px;
@@ -379,6 +379,10 @@ div.post > div.tags {
 
 .post .label.recommended {
     color: #00bb1f;
+}
+
+.post .label.forwarded {
+    color: #f39508;
 }
 
 .post .label.sticked {
@@ -591,4 +595,17 @@ aside.toc li {
 .chpater-nav .nav-item.prev-chapter {
 
     text-align: left;
+}
+
+.markdown table.mark-el {
+    border-left: 1px solid #aaa;
+    border-top: 1px solid #aaa;
+    width: 98%;
+}
+
+.markdown table.mark-el td,
+.markdown table.mark-el th {
+    border-bottom: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    padding: 8px;
 }

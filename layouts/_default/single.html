@@ -17,7 +17,7 @@
 					</div>
 				{{ end }}
 				<div class="matter">
-					<h1 class="title">{{ .Title }}</h1>
+					<h1 class="title">{{ if .Param "forwarded" }}【转载】{{ end }}{{ .Title }}</h1>
 				</div>
 			</div>
 			{{ if ne .Type "page" }}
@@ -47,7 +47,7 @@
 			<div class="markdown">
 				{{ partial "toc.html" . }}
 
-				{{ .Content }}
+				{{ .Content | replaceRE "<table>" "<table class=\"mark-el\">" | safeHTML }}
 			</div>
 
 			{{ partial "cc-license.html" . }}
