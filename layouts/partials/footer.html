@@ -10,7 +10,9 @@
 	</nav>
 </div>
 
+{{- if eq (.Site.Params.mainSite | upper) (.Site.BaseURL | upper) -}}
 {{ template "_internal/google_analytics_async.html" . }}
+{{- end -}}
 {{- with .Site.Params.Social -}}
 <script>feather.replace()</script>
 {{- end -}}
