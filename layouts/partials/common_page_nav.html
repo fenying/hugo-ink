@@ -1,0 +1,22 @@
+
+<div class="chpater-nav">
+    {{- $thePosts := where .Site.Pages.ByDate ".Type" "==" .Type -}}
+    {{- with index (where $thePosts ".Date" "gt" .Date) 0 -}}
+        <div class="nav-item prev-chapter">
+            <a href="{{ .Permalink }}"><<< {{ .Title }}</a>
+        </div>
+    {{- else -}}
+        <div class="nav-item prev-chapter">
+            <span class="no-nav">已经是最新一篇了</span>
+        </div>
+    {{- end -}}
+    {{- with index (where $thePosts.Reverse ".Date" "lt" .Date) 0 -}}
+        <div class="nav-item next-chapter">
+            <a href="{{ .Permalink }}">{{ .Title }} >>></a>
+        </div>
+    {{- else -}}
+        <div class="nav-item next-chapter">
+            <span class="no-nav">已经是最后一篇了</span>
+        </div>
+    {{- end -}}
+</div>

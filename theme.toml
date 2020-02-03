@@ -3,13 +3,13 @@
 
 name = "Ink"
 license = "MIT"
-licenselink = "https://github.com/knadh/ink/blob/master/LICENSE.md"
+licenselink = "https://github.com/fenying/ink/blob/master/LICENSE.md"
 description = "Crisp, minimal personal website and blog theme Hugo."
-homepage = "https://github.com/knadh/hugo-ink"
+homepage = "https://github.com/fenying/hugo-ink"
 tags = ["minimal", "clean", "blog", "responsive", "personal", "simple", "minimalist", "portfolio", "dark"]
 features = ["blog", "Clean and minimal", "Responsive", "Social media links", "Syntax highlighting", "Dark mode"]
-min_version = "0.37.0"
+min_version = "0.38.0"
 
 [author]
-  name = "Kailash Nadh"
-  homepage = "https://nadh.in"
+  name = "Fenying (Forked from Kailash Nadh)"
+  homepage = "https://fenying.net"
