@@ -1,0 +1,13 @@
+--2020-02-08 13:11:54--  https://rsms.me/inter/font-files/Inter-Regular.woff2
+Loaded CA certificate '/etc/ssl/certs/ca-certificates.crt'
+Resolving rsms.me (rsms.me)... 104.28.12.251, 104.28.13.251, 2606:4700:3032::681c:cfb, ...
+Connecting to rsms.me (rsms.me)|104.28.12.251|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 100088 (98K) [font/woff2]
+Saving to: ‘Inter-Regular.woff2’
+
+     0K .......... .......... .......... .......... .......... 51%  890K 0s
+    50K .......... .......... .......... .......... .......   100%  922K=0.1s
+
+2020-02-08 13:11:56 (906 KB/s) - ‘Inter-Regular.woff2’ saved [100088/100088]
+
