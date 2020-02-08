@@ -22,7 +22,11 @@
     >CC-{{ $display_cc_license | upper }}-4.0</a>
     协议发表，转载请遵循该协议。<br>
 
+    {{- if ne (.Site.Params.mainSite | upper) (.Site.BaseURL | upper) -}}
+    本文地址：{{ replace .Permalink .Site.BaseURL .Site.Params.mainSite }}
+    {{- else -}}
     本文地址：{{ .Permalink }}
+    {{- end -}}
 </div>
 {{- end -}}
 {{- end -}}
