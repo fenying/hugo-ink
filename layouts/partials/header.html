@@ -32,11 +32,6 @@
 		{{- end }}
 	{{- end }}
 
-	{{ if and (isset .Site.Params "social") (isset .Site.Params "feathericonscdn") (eq .Site.Params.featherIconsCDN true) -}}
-		<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js?sv={{ now.Unix }}"></script>
-	{{- else if (isset .Site.Params "social") -}}
-		<script src="{{ .Site.BaseURL }}js/feather.min.js?sv={{ now.Unix }}"></script>
-	{{ end }}
 		<script src="{{ .Site.BaseURL }}js/main.js?sv={{ now.Unix }}"></script>
 	{{- if isset .Site.Params "customjs" -}}
 		{{- range .Site.Params.customJS }}<script src="{{ $.Site.BaseURL }}{{ . }}?sv={{ now.Unix }}"></script>{{- end }}
