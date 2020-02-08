@@ -22,6 +22,11 @@ document.addEventListener( "DOMContentLoaded", function() {
 	link.setAttribute('type', 'text/css');
 	link.setAttribute('href', 'https://fonts.googleapis.com/css?family=Playfair+Display:700');
 	document.getElementsByTagName('head')[0].appendChild(link);
+	link = document.createElement('link');
+	link.setAttribute('rel', 'stylesheet');
+	link.setAttribute('type', 'text/css');
+	link.setAttribute('href', 'https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css');
+	document.getElementsByTagName('head')[0].appendChild(link);
 });
 </script>
 {{- end -}}
