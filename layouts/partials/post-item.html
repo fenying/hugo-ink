@@ -7,7 +7,11 @@
     </div>
     <div class="matter">
         <h4 class="title small">
+            {{- if .Param "redirect" -}}
+            <a href="{{ .Params.redirect }}">{{.Title}}</a>
+            {{- else -}}
             <a href="{{ .RelPermalink }}">{{.Title}}</a>
+            {{- end -}}
             {{- if .Param "draft" -}}
                 <sup class="label draft" title="尚未完成的草稿">DRAFT</sup>
             {{- end -}}
@@ -34,7 +38,9 @@
         {{ if ne .Type "page" }}
             {{ if or (gt .Params.tags 0) (gt .Params.categories 0) }}
             <div class="tags">
-                {{ if gt .Params.categories 0 }}
+                {{ if eq .Type "project" }}
+                    <a class="project" href="/project/">Project</a>
+                {{ else if gt .Params.categories 0 }}
                     {{ range .Params.categories }}
                     <a class="category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">Category: {{ . }}</a>
                     {{ end }}

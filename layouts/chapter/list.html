@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+{{ partial "header.html" . }}
+
+<body>
+	<div class="container wrapper list">
+		{{ partial "head.html" . }}
+
+		{{ if isset .Data "Term" }}
+			<h2>{{ .Data.Term }}</h2>
+		{{ else }}
+		<h2 class="page-title">{{ .Name }} ({{ len (where .Site.RegularPages "Type" "==" "book") }})</h2>
+		{{ end }}
+
+		<ul class="posts flat">
+			{{- range (.Data.Pages.ByDate.Reverse.ByParam "pinned") -}}
+			{{- if (in (.Site.Params.excludedTypes | default (slice "page")) .Type) -}}
+			{{- else -}}
+			<li class="post">
+				{{- partial "post-item.html" . -}}
+			</li>
+			{{- end -}}
+			{{- end -}}
+		</ul>
+	</div>
+
+	{{ partial "footer.html" . }}
+</body>
+
+</html>

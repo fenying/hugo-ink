@@ -343,6 +343,11 @@ div.post > div.tags {
     color: #ff002b;
 }
 
+.post .tags a.project {
+    border: 1px solid #00a2ffb4;
+    color: #00a2ffb4;
+}
+
 .post .tags a.book {
     border: 1px solid #00ac9d;
     color: #00ac9d;
