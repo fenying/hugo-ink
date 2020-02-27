@@ -13,7 +13,7 @@
     {{- end -}}
     {{- with .Params.book -}}
     <div class="nav-item back-to-catalog">
-        <a href="{{ "/books/" | relLangURL }}{{ . | urlize }}">返回目录</a>
+        <a href="{{ "/book/" | relLangURL }}{{ . | urlize }}">返回目录</a>
     </div>
     {{- end -}}
     {{- with index (where $thePosts ".Params.chapter_id" "gt" .Params.chapter_id) 0 -}}
